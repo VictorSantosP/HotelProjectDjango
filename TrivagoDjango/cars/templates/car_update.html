@@ -1,0 +1,19 @@
+{% extends  "base.html" %}
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1>Editar Carro</h1>
+    <table>
+        {{ form.as_table }}
+    </table>
+
+    <div>
+        <input type="submit" value = 'Salvar alterações'>
+    </div>
+
+    <div>
+        <a href="{% url 'car_detail' pk=object.pk %}"> Cancelar</a>
+    </div>
+</form>
+{% endblock%}
