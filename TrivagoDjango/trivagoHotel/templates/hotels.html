@@ -94,7 +94,7 @@
 
 
   <form method="GET" action="{% url 'hotels_list' %}">
-    <input type="text" name="search" placeholder="Buscar carro...">
+    <input type="text" name="search" placeholder="Buscar quarto...">
     <button type="submit">Buscar</button>
   </form>
 
@@ -111,7 +111,7 @@
         </a>
       {% endfor %}
     {% else %}
-      <p class="no-results">Nenhum carro encontrado.</p>
+      <p class="no-results">Nenhum quarto encontrado.</p>
     {% endif %}
   </div>
 {% endblock %}
