@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content%}
-
+body {background-color: coral}
 <h2> Novo formulário de cadastro de carros: </h2>
-
 <form method="post" enctype="multipart/form-data"> 
     {% csrf_token %}
     <table> 
