@@ -9,8 +9,6 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from typing import Any
 
-# Create your views here.
-
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class newHotelCreateView(CreateView):
@@ -50,41 +48,3 @@ class HotelDeleteView(DeleteView):
     model = Hotel
     template_name = 'room_delete.html'
     success_url = '/hotels/'
-
-
-
-                  
-
-
-"""
---- View de criação de objetos (cadastro) - antiga
-def new_car_view(request):
-    new_car_form = CarModelForm()
-
-    if request.method == 'POST':
-        new_car_form = CarModelForm(request.POST, request.FILES)
-        #print(new_car_form.data)
-        if new_car_form.is_valid():
-            new_car_form.save()
-            return redirect('cars_list')
-
-    
-    return render(request, 
-                  'new_car.html',
-                  {'new_car_form': new_car_form})
-                  
---- View de listagem de objetos - antiga                 
-def cars_view(request):
-    cars = Car.objects.all()
-    search = request.GET.get('search')
-    
-    if search:
-        cars = Car.objects.filter(brand__name__icontains = search)
-
-    return render(request, 
-                  'cars.html',
-                  {'cars': cars})
-                  
-                  
-                  
-                  """
