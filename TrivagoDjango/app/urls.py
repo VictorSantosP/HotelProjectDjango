@@ -18,16 +18,16 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from cars.views import newCarCreateView,  carsListView, CarDetailView, CarUpdateView, CarDeleteView
+from trivagoHotel.views import newHotelCreateView,  hotelsListView, HotelDetailView, HotelUpdateView, HotelDeleteView
 from accounts.views import login_view, logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cars/',carsListView.as_view(), name='cars_list'),
-    path('new_car/', newCarCreateView.as_view(), name='new_car' ),
-    path('car/<int:pk>/', CarDetailView.as_view(), name='car_detail' ),
-    path('car/<int:pk>/update/', CarUpdateView.as_view(), name = 'car_update'),
-    path('car/<int:pk>/delete/', CarDeleteView.as_view(), name = 'car_delete'),
+    path('hotels/',hotelsListView.as_view(), name='hotels_list'),
+    path('new_room/', newHotelCreateView.as_view(), name='new_room' ),
+    path('room/<int:pk>/', HotelDetailView.as_view(), name='room_detail' ),
+    path('room/<int:pk>/update/', HotelUpdateView.as_view(), name = 'room_update'),
+    path('room/<int:pk>/delete/', HotelDeleteView.as_view(), name = 'room_delete'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from cars.models import Car, Brand
+from trivagoHotel.models import Hotel, Brand
 
 
 
@@ -10,8 +10,8 @@ class BrandAdmin(admin.ModelAdmin):
 
 admin.site.register(Brand, BrandAdmin)
 
-class CarAdmin(admin.ModelAdmin):
+class HotelAdmin(admin.ModelAdmin):
     list_display = ('model', 'brand', 'factory_year', 'model_year', 'value', 'photo')
     search_fields = ('model','brand__name')
 
-admin.site.register(Car, CarAdmin)
+admin.site.register(Hotel, HotelAdmin)

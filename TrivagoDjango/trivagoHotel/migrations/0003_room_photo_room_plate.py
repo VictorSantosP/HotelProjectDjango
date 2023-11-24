@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cars', '0002_brand_alter_car_brand'),
+        ('trivagoHotel', '0002_brand_alter_room_brand'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='car',
+            model_name='hotel',
             name='photo',
-            field=models.ImageField(blank=True, null=True, upload_to='cars/'),
+            field=models.ImageField(blank=True, null=True, upload_to='hotels/'),
         ),
         migrations.AddField(
-            model_name='car',
+            model_name='hotel',
             name='plate',
             field=models.CharField(blank=True, max_length=10, null=True),
         ),
