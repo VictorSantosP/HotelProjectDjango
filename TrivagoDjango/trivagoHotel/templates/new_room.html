@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% block title %} Adicionar Quarto {% endblock %} 
 
 {% block content%}
 
@@ -166,8 +165,12 @@
             <p style="color: red;">{{ erros }}</p>
             {% endif %}
             <div class="continue-button">
-                <button value="Enviar" style='color: white;'>Criar</button>
+                <a href="{%url 'hotels_list' %}">
+                    <button value="Enviar" style='color: white;'>Criar</button>
+                </a>
             </div>
         </form>
     </div>
 </div>
+
+{% endblock %}

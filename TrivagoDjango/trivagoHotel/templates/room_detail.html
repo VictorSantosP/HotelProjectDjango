@@ -1,100 +1,254 @@
-{% extends "base.html" %}
+{% extends "base.html"%}
 
 {% block content %}
-  <style>
-    .room-card {
-      background-color: #e3e1e1;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
-      overflow: hidden;
-      text-align: center;
-      transition: all 0.3s ease;
-      max-width: 500px;
-      margin: 20px auto 0;
-      margin-bottom: 20px;
-    }
+<html>
 
-    .room-card:hover {
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      transform: translateY(-2px);
-    }
+<style>
 
-    .room-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
 
-    .room-card h2 {
-      font-size: 1.5rem;
-      margin: 10px;
-    }
+:root{
+    --transition: all 0.7s ease;
+    --yellow: #f9d342;
+    --dark: #292826;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    line-height: 1.6;
+}
+.btn{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 140px;
+    display: block;
+    margin: 15px auto;
+    cursor: pointer;
+    transition: var(--transition);
+}
 
-    .room-card p {
-      font-size: 1rem;
-      margin-bottom: 10px;
-    }
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    .buttons-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
+img{
+    width: 100%;
+    display: block;
+}
 
-    .btn {
-      display: inline-block;
-      background-color: #0096c7;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
-      margin: 0 10px;
-    }
+.header{
+    background: linear-gradient(black, gray);
+    color: white;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+.head span{
+    cursor: pointer;
+    letter-spacing: 2px;
+}
 
-    .btn:hover {
-      background-color: #108eb8;
-    }
+.menu ul{
+	display: flex;
+}
+.menu ul li{
+	list-style: none;
+	margin-left: 20px;
+	padding: 10px;
+}
+.menu ul li a{
+	text-decoration: none;
+	color: white;
+}
 
-    .btn-danger {
-      background-color: #d9534f;
-      text-decoration: none !important;
-    }
 
-    .btn-danger:hover {
-      background-color: #d2221c;
-    }
+.cabecalho{
+    background: var(--dark);
+    color: #fff;
+}
+.cabecalho-container{
+    width: 85vw;
+    margin: 0 auto;
+    padding: 30px 0;
+}
 
-    .error-message {
-      color: #d9534f;
-      font-size: 14px;
-      margin-top: 5px;
-    }
+.cabecalho a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
 
-    a {
-      text-decoration: none !important;
-    }
-  </style>
-  <div class="room-card">
-      <img src="{{ object.photo.url }}" alt="{{ object.model }} - {{ object.brand }}">
-      <h2>{{ object.brand }} {{ object.model }}</h2>
-      <p><strong>Ano de fabricação:</strong> {{ object.factory_year }}</p>
-      <p><strong>Ano do modelo:</strong> {{ object.model_year }}</p>
-      <p><strong>Placa:</strong> {{ object.plate }}</p>
-      <p><strong>Preço:</strong> R$ {{ object.value }}</p>
-  </div>
+.cabecalho-container{
+    display: grid;
+    padding-right: 20px;
+}
 
-  {%  if user.is_authenticated   %}
-  <div class="buttons-container">
-    <a href="{% url 'room_update' pk=object.pk %}" class="btn btn-primary"> Atualizar </a>
-    <a href="{% url 'room_delete' pk=object.pk %}" class="btn btn-danger"> Deletar </a>
+.cabecalho{
+    text-align: left;
+}
+.cabecalho-container{
+    grid-template-columns: repeat(4, 1fr);
+}
+.cabecalho-container div:nth-child(1) p{
+    padding-right: 20px;
+        
+}
+.contato{
+    margin-bottom: 15px;
+}
 
-  </div>
-  {% endif %}
 
+.quarto{
+    background: var(--dark);
+    color: white;
+}
+.quarto-text{
+    padding: 5px 20px;
+    color: white;
+}
+
+.quarto-text ul{
+    list-style-type: none;
+    margin: 15px 0;
+}
+
+.preco span{
+    font-size: 40px;
+    font-weight: 900;
+    color: yellow;
+}
+
+.quarto{
+    display: flex;
+    margin: 5px 0;
+}
+.quarto-image{
+   flex: 1;
+}
+    
+.quarto-text{
+   flex: 1;
+}
+.quarto:nth-child(even){
+    flex-direction: row-reverse;
+ }
+
+ .titulo{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 30px;
+    color: var(--yellow);
+    border-bottom: 5px solid var(--dark);
+    width: 235px;
+    margin: 15px 0;
+}
+
+</style>
+
+    <head>
+        <meta charset="utf-8">
+        <title>HOTEIS ROYAL</title>
+    </head>
+    <body>
+
+
+
+                <header class = "header" id = "header">
+            <div class = "head">
+                <div class = "cabeçalho">
+                    <span>HOTEIS ROYAL</span>
+                </div>
+            </div>
+
+          
+        </header>
+
+        <section class = "quartos sec-width" id = "quartos">
+            <div class = "titulo">
+                <h2>Quartos</h2>
+            </div>
+            <article class = "quarto">
+                <div class = "quarto-image">
+                    <img src = "{{ hotel.photo.url }}" alt = "quarto image">
+                </div>
+                <div class = "quarto-text">
+                    <h3>{{hotel.model}}</h3>
+                    <ul>
+                        <li>
+                            {{hotel.desc}}
+                        </li>
+                        <p class = "preco">
+                        <span>{{hotel.value}}</span>
+                    </p>
+                    <button type = "button" class = "btn">RESERVAR</button>
+                    <a href="{% url 'room_update' hotel.pk%}">
+                      <button type = "button" class = "btn">ATUALIZAR</button>
+                    </a>
+                    <a href="{% url 'room_delete' hotel.pk%}">
+                      <button type = "button" class = "btn">DELETAR</button>
+                    </a>
+                </div>
+            </article>
+
+            </div>
+        </section>
+        <footer class = "cabecalho">
+            <div class = "cabecalho-container">
+                <div>
+                    <h2>Sobre nós </h2>
+                    <p>Projeto desenvolvido por: Arthur Luna, Camila Mariza, Emílio Leão, Gabriel Ferreira e Victor Hugo.</p>
+                </div>
+
+
+                <div>
+                    <h2>Contato</h2>
+                    <div class = "contato">
+                        <span>
+                            SQN 410, Brasília - DF
+                        </span>
+                    </div>
+                    <div class = "contato">
+                        <span>
+                            +55 61 4002 8922
+                        </span>
+                    </div>
+                    <div class = "contato">
+                        <span>
+                            hoteisroyal@gmail.com
+                        </span>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Localização</h2>
+                    <div class = "contato">
+                        <span>
+                            SQN 410, Brasília - Distrito Federal 
+                        </span>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
 
 {% endblock %}

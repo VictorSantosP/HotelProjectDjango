@@ -11,7 +11,7 @@ class BrandAdmin(admin.ModelAdmin):
 admin.site.register(Brand, BrandAdmin)
 
 class HotelAdmin(admin.ModelAdmin):
-    list_display = ('model', 'brand', 'factory_year', 'model_year', 'value', 'photo')
+    list_display = ('model', 'brand', 'value', 'photo')
     search_fields = ('model','brand__name')
 
 admin.site.register(Hotel, HotelAdmin)
