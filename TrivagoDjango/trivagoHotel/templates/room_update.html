@@ -1,19 +1,256 @@
-{% extends  "base.html" %}
+{% extends "base.html"%}
+
 {% block content %}
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <h1>Editar Carro</h1>
-    <table>
-        {{ form.as_table }}
-    </table>
 
-    <div>
-        <input type="submit" value = 'Salvar alterações'>
-    </div>
+<html>
 
-    <div>
-        <a href="{% url 'room_detail' pk=object.pk %}"> Cancelar</a>s
-    </div>
-</form>
-{% endblock%}
+<style>
+
+
+:root{
+    --transition: all 0.7s ease;
+    --yellow: #f9d342;
+    --dark: #292826;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    line-height: 1.6;
+}
+.btn{
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 140px;
+    display: block;
+    margin: 15px auto;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+
+.header{
+    background: linear-gradient(black, gray);
+    color: white;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+.head span{
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.menu ul{
+	display: flex;
+}
+.menu ul li{
+	list-style: none;
+	margin-left: 20px;
+	padding: 10px;
+}
+.menu ul li a{
+	text-decoration: none;
+	color: white;
+}
+
+
+.cabecalho{
+    background: var(--dark);
+    color: #fff;
+}
+.cabecalho-container{
+    width: 85vw;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.cabecalho a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+.cabecalho-container{
+    display: grid;
+    padding-right: 20px;
+}
+
+.cabecalho{
+    text-align: left;
+}
+.cabecalho-container{
+    grid-template-columns: repeat(4, 1fr);
+}
+.cabecalho-container div:nth-child(1) p{
+    padding-right: 20px;
+        
+}
+.contato{
+    margin-bottom: 15px;
+}
+
+
+.quarto{
+    background: var(--dark);
+    color: white;
+}
+.quarto-text{
+    padding: 5px 20px;
+    color: white;
+}
+
+.quarto-text ul{
+    list-style-type: none;
+    margin: 15px 0;
+}
+
+.preco span{
+    font-size: 40px;
+    font-weight: 900;
+    color: yellow;
+}
+
+.quarto{
+    display: flex;
+    margin: 5px 0;
+}
+.quarto-image{
+   flex: 1;
+   width: 50%;
+}
+    
+.quarto-text{
+   flex: 1;
+}
+.quarto:nth-child(even){
+    flex-direction: row-reverse;
+ }
+
+ .titulo{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 24px;
+    color: var(--yellow);
+    border-bottom: 5px solid var(--dark);
+    width: 235px;
+    margin: 15px 0;
+}
+
+</style>
+
+    <head>
+        <meta charset="utf-8">
+        <title>HOTEIS ROYAL</title>
+    </head>
+    <body>
+
+
+
+                <header class = "header" id = "header">
+            <div class = "head">
+                <div class = "cabeçalho">
+                    <span>HOTEIS ROYAL</span>
+                </div>
+            </div>
+
+          
+        </header>
+
+        <section class = "quartos sec-width" id = "quartos">
+            <div class = "titulo">
+                <h2>Editar Quartos</h2>
+            </div>
+            <article class = "quarto">
+                <div class = "quarto-image">
+                    <img src = "{{ hotel.photo.url }}" alt = "quarto image">
+                </div>
+                <form method="post" enctype="multipart/form-data">
+                    
+                    <h1>Editar Carro</h1>
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                
+                
+                    <a href="{%url 'hotels_list' %}">
+                        <button value="Enviar" style='color: white;'>Salvar</button>
+                    </a>>    
+                    <div>
+                        <a href="{% url 'room_detail' pk=object.pk %}"> Cancelar</a>
+                    </div>
+                </form>
+                
+                </div>
+            </article>
+
+            </div>
+        </section>
+        <footer class = "cabecalho">
+            <div class = "cabecalho-container">
+                <div>
+                    <h2>Sobre nós </h2>
+                    <p>Projeto desenvolvido por: Arthur Luna, Camila Mariza, Emílio Leão, Gabriel Ferreira e Victor Hugo.</p>
+                </div>
+
+                <div>
+                    <h2>Contato</h2>
+                    <div class = "contato">
+                        <span>
+                            SQN 410, Brasília - DF
+                        </span>
+                    </div>
+                    <div class = "contato">
+                        <span>
+                            +55 61 4002 8922
+                        </span>
+                    </div>
+                    <div class = "contato">
+                        <span>
+                            hoteisroyal@gmail.com
+                        </span>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Localização</h2>
+                    <div class = "contato">
+                        <span>
+                            SQN 410, Brasília - Distrito Federal 
+                        </span>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
+
+{% endblock %}
