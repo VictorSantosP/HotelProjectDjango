@@ -194,7 +194,7 @@ img{
                     <img src = "{{ hotel.photo.url }}" alt = "quarto image">
                 </div>
                 <form method="post" enctype="multipart/form-data">
-                    
+                    {% csrf_token %}  
                     <h1>Editar Carro</h1>
                     <table>
                         {{ form.as_table }}
@@ -202,8 +202,8 @@ img{
                 
                 
                     <a href="{%url 'hotels_list' %}">
-                        <button value="Enviar" type = "button" class = "btn">Salvar</button>
-                    </a>    
+                        <button class="btn" type="submit"> ATUALIZAR </button>
+                    </a>  
                     <div>
                         <button value="Cabcelar" type = "button" class = "btn"><a href="{% url 'room_detail' pk=object.pk %}"> Cancelar</a></button>
                     </div>

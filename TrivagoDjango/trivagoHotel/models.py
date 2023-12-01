@@ -12,8 +12,8 @@ class Brand(models.Model):
 
 class Hotel(models.Model):
     id = models.AutoField(primary_key=True)
-    model = models.CharField(max_length=200)
-    desc = models.CharField(max_length=200)
+    model = models.CharField(max_length=600)
+    desc = models.CharField(max_length=600)
     brand = models.ForeignKey(Brand, on_delete=models.PROTECT, related_name='hotel_brand')
     value = models.FloatField(blank=True, null=True)
     photo = models.ImageField(upload_to='trivagoHotel/', blank=True, null=True)
