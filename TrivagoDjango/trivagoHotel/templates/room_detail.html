@@ -4,18 +4,19 @@
 <html>
 
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
 
 :root{
     --transition: all 0.7s ease;
     --yellow: #f9d342;
-    --dark: #292826;
+    --dark: #ececec;
 }
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
 }
 html{
     scroll-behavior: smooth;
@@ -35,6 +36,7 @@ body{
     margin: 15px auto;
     cursor: pointer;
     transition: var(--transition);
+    background-color: #f9d342;
 }
 
 .flex{
@@ -81,7 +83,7 @@ img{
 
 .cabecalho{
     background: var(--dark);
-    color: #fff;
+    color: #000000;
 }
 .cabecalho-container{
     width: 85vw;
@@ -121,7 +123,7 @@ img{
 }
 .quarto-text{
     padding: 5px 20px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .quarto-text ul{
@@ -132,7 +134,7 @@ img{
 .preco span{
     font-size: 40px;
     font-weight: 900;
-    color: yellow;
+    color: rgb(0, 0, 0);
 }
 
 .quarto{

@@ -6,18 +6,19 @@
 <html>
 
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
 
 :root{
     --transition: all 0.7s ease;
     --yellow: #f9d342;
-    --dark: #292826;
+    --dark: #ececec;
 }
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
 }
 html{
     scroll-behavior: smooth;
@@ -37,6 +38,7 @@ body{
     margin: 15px auto;
     cursor: pointer;
     transition: var(--transition);
+    background-color: #f9d342;
 }
 
 .flex{
@@ -83,7 +85,7 @@ img{
 
 .cabecalho{
     background: var(--dark);
-    color: #fff;
+    color: #000000;
 }
 .cabecalho-container{
     width: 85vw;
@@ -119,11 +121,11 @@ img{
 
 .quarto{
     background: var(--dark);
-    color: white;
+    color: rgb(0, 0, 0);
 }
 .quarto-text{
     padding: 5px 20px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .quarto-text ul{
@@ -200,10 +202,10 @@ img{
                 
                 
                     <a href="{%url 'hotels_list' %}">
-                        <button value="Enviar" style='color: white;'>Salvar</button>
-                    </a>>    
+                        <button value="Enviar" type = "button" class = "btn">Salvar</button>
+                    </a>    
                     <div>
-                        <a href="{% url 'room_detail' pk=object.pk %}"> Cancelar</a>
+                        <button value="Cabcelar" type = "button" class = "btn"><a href="{% url 'room_detail' pk=object.pk %}"> Cancelar</a></button>
                     </div>
                 </form>
                 
