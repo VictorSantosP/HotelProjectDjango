@@ -93,3 +93,7 @@ O aplicativo estará acessível em `http://127.0.0.1:8000/`.
 </table>
 
 Esperamos que o HotelProjectDjango seja útil para o gerenciamento eficiente de quartos de hotel. Agradecemos por utilizar nosso projeto!
+
+## ⚖️ Licença
+
+[MIT](https://github.com/VictorSantosP/HotelProjectDjango/LICENSE.md)
