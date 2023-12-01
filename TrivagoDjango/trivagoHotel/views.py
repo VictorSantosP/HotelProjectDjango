@@ -47,3 +47,8 @@ class HotelDeleteView(DeleteView):
     model = Hotel
     template_name = 'room_delete.html'
     success_url = '/hotels/'
+
+
+class HotelAboutView(DetailView):
+    model = Hotel
+    template_name = '/about_us.html/'

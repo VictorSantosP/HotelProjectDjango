@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from trivagoHotel.views import newHotelCreateView,  hotelsListView, HotelDetailView, HotelUpdateView, HotelDeleteView
+from trivagoHotel.views import newHotelCreateView,  hotelsListView, HotelDetailView, HotelUpdateView, HotelDeleteView, HotelAboutView
 
 
 urlpatterns = [
@@ -28,5 +28,6 @@ urlpatterns = [
     path('room/<int:pk>/', HotelDetailView.as_view(), name='room_detail' ),
     path('room/<int:pk>/update/', HotelUpdateView.as_view(), name = 'room_update'),
     path('room/<int:pk>/delete/', HotelDeleteView.as_view(), name = 'room_delete'),
+    path('about/<int:pk>/', HotelAboutView.as_view(), name = 'about'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
